@@ -598,6 +598,9 @@ export const uk: TranslationMap = {
     worktreeName: "Назва worktree",
     worktreeNamePlaceholder: "auto",
     worktreeNameInvalid: "Назви worktree мають містити малі літери, цифри та дефіси.",
+    incognito: "Інкогніто",
+    incognitoDescription: "Зберігати цю розмову лише до перезапуску Gateway",
+    startAsDraft: "Почати як чернетку",
     messagePlaceholder: "Над чим має працювати цей сеанс?",
     readingAttachment: "Читання вкладення",
     start: "Почати сеанс",
@@ -619,7 +622,8 @@ export const uk: TranslationMap = {
     limit: "Обмеження",
     filters: "Фільтри",
     createdBy: "Створено {name}",
-    filterByCreator: "Фільтрувати за автором",
+    archivedBy: "Архівовано {name}",
+    people: "Люди",
     allCreators: "Усі люди",
     filterControls: "Фільтри сесій",
     sourceFilters: "Фільтри джерела сеансів",
@@ -678,6 +682,8 @@ export const uk: TranslationMap = {
     openWorkboardCard: "Відкрити картку Workboard",
     dashboardAvailable: "Панель доступна",
     approvalNeeded: "Потрібне схвалення",
+    queuedMessage: "{count} повідомлення в черзі на надсилання",
+    queuedMessages: "{count} повідомлень у черзі на надсилання",
     noSessions: "Сеансів не знайдено.",
     noActiveSessions: "Немає активних тем.",
     noArchivedSessions: "Немає заархівованих сесій.",
@@ -745,6 +751,7 @@ export const uk: TranslationMap = {
     unread: "Unread",
     worktreeSession: "Worktree session",
     automationAttached: "Automation attached",
+    incognito: "Розмова інкогніто",
     cloudWorkerPlacement: "Хмарний виконавець: {state}",
     cloudWorkerPlacementConflict: "Хмарний воркер: {state} · 1 конфлікт робочого простору",
     cloudWorkerPlacementConflicts: "Хмарний воркер: {state} · {count} конфліктів робочого простору",
@@ -1407,6 +1414,11 @@ export const uk: TranslationMap = {
     chatPrefs: {
       title: "Чат",
       hint: "Локальні налаштування чату в браузері.",
+      messageWidth: "Ширина повідомлення",
+      messageWidthHint:
+        "Необов'язкова CSS-ширина для центрованого транскрипту, наприклад 960px, 82% або min(1280px, 82%).",
+      messageWidthInvalid:
+        "Введіть CSS-ширину, наприклад 960px, 82%, min(1280px, 82%) або calc(100% - 2rem).",
     },
     sidebarPrefs: {
       title: "Бічна панель",
@@ -1697,6 +1709,7 @@ export const uk: TranslationMap = {
     blockedAgentFilter: "заблоковано фільтром агента",
   },
   nav: {
+    account: "Обліковий запис",
     back: "Назад",
     forward: "Вперед",
     chat: "Чат",
@@ -1929,6 +1942,15 @@ export const uk: TranslationMap = {
       pair: "З’єднати",
       more: "Інші варіанти входу",
     },
+    prepare: {
+      title: "Налаштувати локальну модель",
+      intro: "Завантажте або підготуйте локальну модель на цьому Gateway.",
+      button: "Налаштувати / Завантажити модель",
+      ollamaLabel: "Ollama",
+      ollamaHint: "Завантажте модель із підтримкою інструментів із вашого сервера Ollama",
+      llamaCppLabel: "Локальна модель (llama.cpp)",
+      llamaCppHint: "Завантажте локальну модель розміром приблизно 5,0 ГБ; потрібно 16 ГБ ОЗП",
+    },
     manual: {
       title: "Підключення за допомогою ключа API або токена",
       provider: "Постачальник",
@@ -1959,8 +1981,11 @@ export const uk: TranslationMap = {
     },
     wizard: {
       dialogLabel: "Вхід через постачальника",
+      prepareDialogLabel: "Налаштування локальної моделі",
       title: "Увійти через постачальника",
+      prepareTitle: "Налаштувати локальну модель",
       starting: "Починається вхід через постачальника…",
+      prepareStarting: "Запуск налаштування локальної моделі…",
       checking: "Перевіряємо налаштування вашої моделі…",
       working: "Працює…",
       continue: "Продовжити",
@@ -2423,6 +2448,8 @@ export const uk: TranslationMap = {
     toolRuns: "{count} запусків",
     identity: {
       title: "Ідентичність",
+      menuLabel: "Меню особи",
+      menuButtonLabel: "Меню особи та застосунку для {name}",
       description: "Ваш профіль на цьому gateway.",
       loading: "Завантаження вашої ідентичності…",
       profileUnavailable: "Не вдалося завантажити профіль вашої ідентичності.",
@@ -3043,6 +3070,7 @@ export const uk: TranslationMap = {
     eventStale: "Застарілий сеанс",
   },
   connection: {
+    queuedCount: "{count} у черзі",
     reconnecting: "Повторне підключення…",
     retryNow: "Повторити зараз",
     access: {
@@ -3710,6 +3738,16 @@ export const uk: TranslationMap = {
   },
   login: {
     subtitle: "Панель Gateway",
+    deviceAuthMigration: {
+      banner: "Цей браузер після оновлення потребує одноразового підтвердження пристрою.",
+      action: "Захистити цей браузер",
+      secureContextRequired:
+        "Цей застарілий браузер тимчасово доступний. Відкрийте його знову через HTTPS або localhost, щоб захистити ідентичністю пристрою.",
+      pendingUnavailable:
+        "Запит на створення пари для браузера ще недоступний. Повторіть спробу за мить.",
+      loadFailed: "Не вдалося завантажити запит на створення пари для цього браузера: {error}",
+      approvalFailed: "Не вдалося захистити цей браузер: {error}",
+    },
     passwordPlaceholder: "необов’язково",
     showToken: "Показати токен",
     hideToken: "Приховати токен",
@@ -3810,6 +3848,9 @@ export const uk: TranslationMap = {
   },
   chat: {
     disconnected: "Відключено від шлюзу.",
+    sendErrors: {
+      activeLeafChanged: "Гілку потоку змінено — перевірте та надішліть знову.",
+    },
     waitingForApproval: "Очікування схвалення…",
     startupStatus: {
       preparingWorkspace: "Підготовка робочої області…",
@@ -3819,6 +3860,36 @@ export const uk: TranslationMap = {
     },
     outputTokens: "{count} вихідних токенів",
     archivedSessionDisabled: "Відновіть цей сеанс, щоб надсилати повідомлення.",
+    sessionSharing: {
+      menu: "Спільний доступ до потоку",
+      current: "Видимість потоку: {visibility}",
+      visibility: "Видимість",
+      shared: "Спільний",
+      readOnly: "Лише для читання",
+      suggest: "Запропонувати",
+      draft: "Чернетка",
+      publishDraft: "Опублікувати чернетку",
+      members: "Учасники",
+      selected: "Учасник",
+      noPeople: "Пов'язаних людей не знайдено.",
+      readOnlyNotice: "Діяти в цій темі можуть лише власник і учасники теми.",
+    },
+    sessionSuggestions: {
+      suggest: "Запропонувати",
+      suggestMessage: "Запропонувати повідомлення",
+      attachmentsUnsupported: "Видаліть вкладення, перш ніж надсилати текстову пропозицію.",
+      sendNow: "Надіслати пропозицію {author} зараз",
+      queue: "Поставити пропозицію {author} в чергу",
+      edit: "Редагувати пропозицію {author}",
+      dismiss: "Відхилити пропозицію {author}",
+      typing: "{name} пише…",
+      typingMany: "{names} пишуть…",
+      state: {
+        pending: "Очікується",
+        accepted: "Прийнято",
+        dismissed: "Відхилено",
+      },
+    },
     loadOlder: "Завантажити старіші",
     sessionHeader: {
       renameTooltip: "Перейменувати сеанс",
@@ -3832,6 +3903,7 @@ export const uk: TranslationMap = {
       copyPath: "Копіювати шлях",
       copyBranch: "Копіювати назву гілки",
       copied: "Скопійовано",
+      incognito: "Прихована тема",
       branches: "Гілки треду",
       branchSwitchUnavailable: "Перемикання гілок недоступне, поки агент працює.",
       branchSwitchRequiresAdmin: "Перемикання гілок потребує адміністративного доступу оператора.",
@@ -4121,6 +4193,7 @@ export const uk: TranslationMap = {
       openInCanvas: "Відкрити в полотні",
       reply: "Відповісти",
       replyToMessage: "Відповісти на повідомлення",
+      replyingTo: "Відповідь на {name}",
       rewind: "Перемотати назад",
       rewindConfirm: "Перемотати до моменту перед цим повідомленням?",
       rewindToHere: "Перемотати сюди",
@@ -4220,6 +4293,8 @@ export const uk: TranslationMap = {
       placeholderDisconnected: "Connect to the gateway to start chatting...",
       offlineHint:
         "Офлайн — повідомлення буде поставлено в чергу й надіслано після відновлення з'єднання.",
+      offlineQueuedHint:
+        "Офлайн — {count} у черзі; повідомлення надішлються після відновлення з'єднання.",
       preparingModel: "Підготовка моделі...",
       responding: "{name} відповідає...",
       sendingMessage: "Надсилання повідомлення...",

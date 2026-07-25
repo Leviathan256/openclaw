@@ -591,6 +591,9 @@ export const id: TranslationMap = {
     worktreeName: "Nama worktree",
     worktreeNamePlaceholder: "otomatis",
     worktreeNameInvalid: "Nama worktree menggunakan huruf kecil, digit, dan tanda hubung.",
+    incognito: "Incognito",
+    incognitoDescription: "Simpan thread ini hanya sampai Gateway dimulai ulang",
+    startAsDraft: "Mulai sebagai draf",
     messagePlaceholder: "Apa yang harus dikerjakan sesi ini?",
     readingAttachment: "Membaca lampiran",
     start: "Mulai sesi",
@@ -612,7 +615,8 @@ export const id: TranslationMap = {
     limit: "Batas",
     filters: "Filter",
     createdBy: "Dibuat oleh {name}",
-    filterByCreator: "Filter berdasarkan pembuat",
+    archivedBy: "Diarsipkan oleh {name}",
+    people: "Orang",
     allCreators: "Semua orang",
     filterControls: "Filter sesi",
     sourceFilters: "Filter sumber sesi",
@@ -671,6 +675,8 @@ export const id: TranslationMap = {
     openWorkboardCard: "Buka kartu Workboard",
     dashboardAvailable: "Dasbor tersedia",
     approvalNeeded: "Perlu persetujuan",
+    queuedMessage: "{count} pesan dalam antrean untuk dikirim",
+    queuedMessages: "{count} pesan dalam antrean untuk dikirim",
     noSessions: "Tidak ada sesi yang ditemukan.",
     noActiveSessions: "Tidak ada thread aktif.",
     noArchivedSessions: "Tidak ada sesi yang diarsipkan.",
@@ -738,6 +744,7 @@ export const id: TranslationMap = {
     unread: "Unread",
     worktreeSession: "Worktree session",
     automationAttached: "Automation attached",
+    incognito: "Thread incognito",
     cloudWorkerPlacement: "Worker cloud: {state}",
     cloudWorkerPlacementConflict: "Cloud worker: {state} · 1 konflik workspace",
     cloudWorkerPlacementConflicts: "Cloud worker: {state} · {count} konflik workspace",
@@ -1396,6 +1403,11 @@ export const id: TranslationMap = {
     chatPrefs: {
       title: "Chat",
       hint: "Preferensi chat lokal di browser.",
+      messageWidth: "Lebar pesan",
+      messageWidthHint:
+        "Lebar CSS opsional untuk transkrip yang dipusatkan, seperti 960px, 82%, atau min(1280px, 82%).",
+      messageWidthInvalid:
+        "Masukkan lebar CSS seperti 960px, 82%, min(1280px, 82%), atau calc(100% - 2rem).",
     },
     sidebarPrefs: {
       title: "Bilah Samping",
@@ -1684,6 +1696,7 @@ export const id: TranslationMap = {
     blockedAgentFilter: "diblokir oleh filter agen",
   },
   nav: {
+    account: "Akun",
     back: "Kembali",
     forward: "Maju",
     chat: "Chat",
@@ -1916,6 +1929,15 @@ export const id: TranslationMap = {
       pair: "Pasangkan",
       more: "Opsi masuk lainnya",
     },
+    prepare: {
+      title: "Siapkan model lokal",
+      intro: "Unduh atau siapkan model lokal di Gateway ini.",
+      button: "Siapkan / Unduh model",
+      ollamaLabel: "Ollama",
+      ollamaHint: "Unduh model yang mendukung tools dari server Ollama Anda",
+      llamaCppLabel: "Model lokal (llama.cpp)",
+      llamaCppHint: "Unduh model lokal berukuran sekitar 5,0 GB; memerlukan RAM 16 GB",
+    },
     manual: {
       title: "Hubungkan dengan kunci API atau token",
       provider: "Penyedia",
@@ -1946,8 +1968,11 @@ export const id: TranslationMap = {
     },
     wizard: {
       dialogLabel: "Masuk ke penyedia",
+      prepareDialogLabel: "Penyiapan model lokal",
       title: "Masuk dengan penyedia",
+      prepareTitle: "Siapkan model lokal",
       starting: "Memulai proses masuk ke penyedia…",
+      prepareStarting: "Memulai penyiapan model lokal…",
       checking: "Memeriksa penyiapan model Anda…",
       working: "Sedang bekerja…",
       continue: "Lanjutkan",
@@ -2405,6 +2430,8 @@ export const id: TranslationMap = {
     toolRuns: "{count} eksekusi",
     identity: {
       title: "Identitas",
+      menuLabel: "Menu identitas",
+      menuButtonLabel: "Menu identitas dan aplikasi untuk {name}",
       description: "Profil Anda di gateway ini.",
       loading: "Memuat identitas Anda…",
       profileUnavailable: "Profil identitas Anda tidak dapat dimuat.",
@@ -3029,6 +3056,7 @@ export const id: TranslationMap = {
     eventStale: "Sesi kedaluwarsa",
   },
   connection: {
+    queuedCount: "{count} dalam antrean",
     reconnecting: "Menghubungkan kembali…",
     retryNow: "Coba lagi sekarang",
     access: {
@@ -3698,6 +3726,15 @@ export const id: TranslationMap = {
   },
   login: {
     subtitle: "Dasbor Gateway",
+    deviceAuthMigration: {
+      banner: "Browser ini masih memerlukan persetujuan perangkat sekali pakai setelah pembaruan.",
+      action: "Amankan browser ini",
+      secureContextRequired:
+        "Browser lama ini tetap tersedia untuk sementara. Buka kembali melalui HTTPS atau localhost untuk mengamankannya dengan identitas perangkat.",
+      pendingUnavailable: "Permintaan pemasangan browser belum tersedia. Coba lagi sebentar.",
+      loadFailed: "Tidak dapat memuat permintaan pemasangan browser ini: {error}",
+      approvalFailed: "Tidak dapat mengamankan browser ini: {error}",
+    },
     passwordPlaceholder: "opsional",
     showToken: "Tampilkan token",
     hideToken: "Sembunyikan token",
@@ -3798,6 +3835,9 @@ export const id: TranslationMap = {
   },
   chat: {
     disconnected: "Terputus dari gateway.",
+    sendErrors: {
+      activeLeafChanged: "Thread beralih cabang — tinjau dan kirim ulang.",
+    },
     waitingForApproval: "Menunggu persetujuan…",
     startupStatus: {
       preparingWorkspace: "Menyiapkan ruang kerja…",
@@ -3807,6 +3847,36 @@ export const id: TranslationMap = {
     },
     outputTokens: "{count} token output",
     archivedSessionDisabled: "Pulihkan sesi ini untuk mengirim pesan.",
+    sessionSharing: {
+      menu: "Berbagi thread",
+      current: "Visibilitas thread: {visibility}",
+      visibility: "Visibilitas",
+      shared: "Dibagikan",
+      readOnly: "Hanya-baca",
+      suggest: "Sarankan",
+      draft: "Draf",
+      publishDraft: "Terbitkan draf",
+      members: "Anggota",
+      selected: "Anggota",
+      noPeople: "Tidak ada orang terpasang yang ditemukan.",
+      readOnlyNotice: "Hanya pemilik dan anggota utas yang dapat bertindak dalam utas ini.",
+    },
+    sessionSuggestions: {
+      suggest: "Sarankan",
+      suggestMessage: "Sarankan pesan",
+      attachmentsUnsupported: "Hapus lampiran sebelum mengirimkan saran teks.",
+      sendNow: "Kirim saran {author} sekarang",
+      queue: "Antrekan saran {author}",
+      edit: "Edit saran {author}",
+      dismiss: "Tutup saran {author}",
+      typing: "{name} sedang mengetik…",
+      typingMany: "{names} sedang mengetik…",
+      state: {
+        pending: "Tertunda",
+        accepted: "Diterima",
+        dismissed: "Ditutup",
+      },
+    },
     loadOlder: "Muat yang lebih lama",
     sessionHeader: {
       renameTooltip: "Ganti nama sesi",
@@ -3820,6 +3890,7 @@ export const id: TranslationMap = {
       copyPath: "Salin jalur",
       copyBranch: "Salin nama branch",
       copied: "Disalin",
+      incognito: "Utas incognito",
       branches: "Cabang thread",
       branchSwitchUnavailable: "Perpindahan cabang tidak tersedia saat agen sedang bekerja.",
       branchSwitchRequiresAdmin: "Perpindahan cabang memerlukan akses admin operator.",
@@ -4109,6 +4180,7 @@ export const id: TranslationMap = {
       openInCanvas: "Buka di canvas",
       reply: "Balas",
       replyToMessage: "Balas pesan",
+      replyingTo: "Membalas {name}",
       rewind: "Putar ulang",
       rewindConfirm: "Putar ulang ke sebelum pesan ini?",
       rewindToHere: "Putar ulang ke sini",
@@ -4206,6 +4278,7 @@ export const id: TranslationMap = {
       placeholderWithAttachments: "Add a message or paste more images...",
       placeholderDisconnected: "Connect to the gateway to start chatting...",
       offlineHint: "Offline — pesan akan diantrekan dan dikirim saat koneksi kembali.",
+      offlineQueuedHint: "Offline — {count} dalam antrean; pesan terkirim saat koneksi kembali.",
       preparingModel: "Menyiapkan model...",
       responding: "{name} sedang merespons...",
       sendingMessage: "Mengirim pesan...",

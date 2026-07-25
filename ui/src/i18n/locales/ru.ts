@@ -597,6 +597,9 @@ export const ru: TranslationMap = {
     worktreeName: "Имя рабочего дерева",
     worktreeNamePlaceholder: "авто",
     worktreeNameInvalid: "Имена рабочих деревьев могут содержать строчные буквы, цифры и дефисы.",
+    incognito: "Инкогнито",
+    incognitoDescription: "Сохранять эту ветку только до перезапуска Gateway",
+    startAsDraft: "Начать как черновик",
     messagePlaceholder: "Над чем должна работать эта сессия?",
     readingAttachment: "Чтение вложения",
     start: "Начать сессию",
@@ -618,7 +621,8 @@ export const ru: TranslationMap = {
     limit: "Лимит",
     filters: "Фильтры",
     createdBy: "Создано {name}",
-    filterByCreator: "Фильтр по создателю",
+    archivedBy: "Архивировано {name}",
+    people: "Люди",
     allCreators: "Все люди",
     filterControls: "Фильтры сессий",
     sourceFilters: "Фильтры источников сеансов",
@@ -677,6 +681,8 @@ export const ru: TranslationMap = {
     openWorkboardCard: "Открыть карточку Workboard",
     dashboardAvailable: "Панель доступна",
     approvalNeeded: "Требуется подтверждение",
+    queuedMessage: "{count} сообщение в очереди на отправку",
+    queuedMessages: "{count} сообщений в очереди на отправку",
     noSessions: "Сеансы не найдены.",
     noActiveSessions: "Нет активных тредов.",
     noArchivedSessions: "Нет архивных сессий.",
@@ -745,6 +751,7 @@ export const ru: TranslationMap = {
     unread: "Unread",
     worktreeSession: "Worktree session",
     automationAttached: "Automation attached",
+    incognito: "Ветка инкогнито",
     cloudWorkerPlacement: "Облачный исполнитель: {state}",
     cloudWorkerPlacementConflict: "Облачный воркер: {state} · 1 конфликт рабочего пространства",
     cloudWorkerPlacementConflicts:
@@ -1410,6 +1417,11 @@ export const ru: TranslationMap = {
     chatPrefs: {
       title: "Чат",
       hint: "Локальные настройки чата для этого браузера.",
+      messageWidth: "Ширина сообщения",
+      messageWidthHint:
+        "Необязательная CSS-ширина для центрированной расшифровки, например 960px, 82% или min(1280px, 82%).",
+      messageWidthInvalid:
+        "Введите CSS-ширину, например 960px, 82%, min(1280px, 82%) или calc(100% - 2rem).",
     },
     sidebarPrefs: {
       title: "Боковая панель",
@@ -1700,6 +1712,7 @@ export const ru: TranslationMap = {
     blockedAgentFilter: "заблокировано фильтром агента",
   },
   nav: {
+    account: "Аккаунт",
     back: "Назад",
     forward: "Вперед",
     chat: "Чат",
@@ -1932,6 +1945,15 @@ export const ru: TranslationMap = {
       pair: "Связать",
       more: "Другие способы входа",
     },
+    prepare: {
+      title: "Настроить локальную модель",
+      intro: "Загрузите или подготовьте локальную модель на этом Gateway.",
+      button: "Настроить / загрузить модель",
+      ollamaLabel: "Ollama",
+      ollamaHint: "Загрузите модель с поддержкой инструментов с вашего сервера Ollama",
+      llamaCppLabel: "Локальная модель (llama.cpp)",
+      llamaCppHint: "Загрузите локальную модель размером около 5,0 ГБ; требуется 16 ГБ ОЗУ",
+    },
     manual: {
       title: "Подключение с помощью API-ключа или токена",
       provider: "Поставщик",
@@ -1962,8 +1984,11 @@ export const ru: TranslationMap = {
     },
     wizard: {
       dialogLabel: "Вход через провайдера",
+      prepareDialogLabel: "Настройка локальной модели",
       title: "Войти через провайдера",
+      prepareTitle: "Настроить локальную модель",
       starting: "Запуск входа через провайдера…",
+      prepareStarting: "Запуск настройки локальной модели…",
       checking: "Проверка настройки модели…",
       working: "Выполняется…",
       continue: "Продолжить",
@@ -2429,6 +2454,8 @@ export const ru: TranslationMap = {
     toolRuns: "{count} запусков",
     identity: {
       title: "Профиль",
+      menuLabel: "Меню идентификации",
+      menuButtonLabel: "Меню идентификации и приложения для {name}",
       description: "Ваш профиль на этом gateway.",
       loading: "Загрузка ваших данных…",
       profileUnavailable: "Не удалось загрузить профиль вашей учётной записи.",
@@ -3051,6 +3078,7 @@ export const ru: TranslationMap = {
     eventStale: "Устаревший сеанс",
   },
   connection: {
+    queuedCount: "{count} в очереди",
     reconnecting: "Повторное подключение…",
     retryNow: "Повторить сейчас",
     access: {
@@ -3727,6 +3755,17 @@ export const ru: TranslationMap = {
   },
   login: {
     subtitle: "Панель управления Gateway",
+    deviceAuthMigration: {
+      banner:
+        "После обновления этому браузеру всё ещё требуется одноразовое подтверждение устройства.",
+      action: "Защитить этот браузер",
+      secureContextRequired:
+        "Этот устаревший браузер временно доступен. Откройте его через HTTPS или localhost, чтобы защитить с помощью идентификации устройства.",
+      pendingUnavailable:
+        "Запрос на связывание браузера пока недоступен. Повторите попытку через мгновение.",
+      loadFailed: "Не удалось загрузить запрос на связывание для этого браузера: {error}",
+      approvalFailed: "Не удалось защитить этот браузер: {error}",
+    },
     passwordPlaceholder: "необязательно",
     showToken: "Показать токен",
     hideToken: "Скрыть токен",
@@ -3828,6 +3867,9 @@ export const ru: TranslationMap = {
   },
   chat: {
     disconnected: "Отключено от gateway.",
+    sendErrors: {
+      activeLeafChanged: "Тред переключил ветки — проверьте и отправьте снова.",
+    },
     waitingForApproval: "Ожидание подтверждения…",
     startupStatus: {
       preparingWorkspace: "Подготовка рабочей области…",
@@ -3837,6 +3879,36 @@ export const ru: TranslationMap = {
     },
     outputTokens: "{count} выходных токенов",
     archivedSessionDisabled: "Восстановите этот сеанс, чтобы отправлять сообщения.",
+    sessionSharing: {
+      menu: "Общий доступ к треду",
+      current: "Видимость треда: {visibility}",
+      visibility: "Видимость",
+      shared: "Общий доступ",
+      readOnly: "Только чтение",
+      suggest: "Предложить",
+      draft: "Черновик",
+      publishDraft: "Опубликовать черновик",
+      members: "Участники",
+      selected: "Участник",
+      noPeople: "Сопряжённые люди не найдены.",
+      readOnlyNotice: "Действовать в этой ветке могут только владелец и участники.",
+    },
+    sessionSuggestions: {
+      suggest: "Предложить",
+      suggestMessage: "Предложить сообщение",
+      attachmentsUnsupported: "Удалите вложения перед отправкой текстового предложения.",
+      sendNow: "Отправить предложение {author} сейчас",
+      queue: "Поставить предложение {author} в очередь",
+      edit: "Изменить предложение {author}",
+      dismiss: "Отклонить предложение {author}",
+      typing: "{name} печатает…",
+      typingMany: "{names} печатают…",
+      state: {
+        pending: "Ожидает",
+        accepted: "Принято",
+        dismissed: "Отклонено",
+      },
+    },
     loadOlder: "Загрузить более ранние",
     sessionHeader: {
       renameTooltip: "Переименовать сеанс",
@@ -3850,6 +3922,7 @@ export const ru: TranslationMap = {
       copyPath: "Копировать путь",
       copyBranch: "Скопировать имя ветки",
       copied: "Скопировано",
+      incognito: "Инкогнито-ветка",
       branches: "Ветки обсуждения",
       branchSwitchUnavailable: "Переключение веток недоступно, пока агент работает.",
       branchSwitchRequiresAdmin:
@@ -4141,6 +4214,7 @@ export const ru: TranslationMap = {
       openInCanvas: "Открыть в холсте",
       reply: "Ответить",
       replyToMessage: "Ответить на сообщение",
+      replyingTo: "Ответ на {name}",
       rewind: "Перемотать",
       rewindConfirm: "Перемотать к состоянию до этого сообщения?",
       rewindToHere: "Перемотать сюда",
@@ -4239,6 +4313,8 @@ export const ru: TranslationMap = {
       placeholderDisconnected: "Подключитесь к шлюзу, чтобы начать общение...",
       offlineHint:
         "Не в сети — сообщения будут поставлены в очередь и отправлены при восстановлении соединения.",
+      offlineQueuedHint:
+        "Офлайн — в очереди {count}; сообщения отправятся при восстановлении соединения.",
       preparingModel: "Подготовка модели...",
       responding: "{name} отвечает...",
       sendingMessage: "Отправка сообщения...",

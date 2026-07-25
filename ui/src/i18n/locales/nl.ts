@@ -599,6 +599,9 @@ export const nl: TranslationMap = {
     worktreeName: "Worktree-naam",
     worktreeNamePlaceholder: "auto",
     worktreeNameInvalid: "Worktree-namen gebruiken kleine letters, cijfers en koppeltekens.",
+    incognito: "Incognito",
+    incognitoDescription: "Bewaar deze thread alleen totdat de Gateway opnieuw start",
+    startAsDraft: "Starten als concept",
     messagePlaceholder: "Waar moet deze sessie aan werken?",
     readingAttachment: "Bijlage lezen",
     start: "Sessie starten",
@@ -620,7 +623,8 @@ export const nl: TranslationMap = {
     limit: "Limiet",
     filters: "Filters",
     createdBy: "Gemaakt door {name}",
-    filterByCreator: "Filteren op maker",
+    archivedBy: "Gearchiveerd door {name}",
+    people: "Personen",
     allCreators: "Alle personen",
     filterControls: "Sessiefilters",
     sourceFilters: "Filters voor sessiebron",
@@ -680,6 +684,8 @@ export const nl: TranslationMap = {
     openWorkboardCard: "Workboard-kaart openen",
     dashboardAvailable: "Dashboard beschikbaar",
     approvalNeeded: "Goedkeuring vereist",
+    queuedMessage: "{count} bericht in wachtrij om te verzenden",
+    queuedMessages: "{count} berichten in wachtrij om te verzenden",
     noSessions: "Geen sessies gevonden.",
     noActiveSessions: "Geen actieve threads.",
     noArchivedSessions: "Geen gearchiveerde sessies.",
@@ -748,6 +754,7 @@ export const nl: TranslationMap = {
     unread: "Unread",
     worktreeSession: "Worktree session",
     automationAttached: "Automation attached",
+    incognito: "Incognito-thread",
     cloudWorkerPlacement: "Cloudworker: {state}",
     cloudWorkerPlacementConflict: "Cloud worker: {state} · 1 workspaceconflict",
     cloudWorkerPlacementConflicts: "Cloud worker: {state} · {count} workspaceconflicten",
@@ -1407,6 +1414,11 @@ export const nl: TranslationMap = {
     chatPrefs: {
       title: "Chat",
       hint: "Browserlokale chatvoorkeuren.",
+      messageWidth: "Berichtbreedte",
+      messageWidthHint:
+        "Optionele CSS-breedte voor het gecentreerde transcript, zoals 960px, 82% of min(1280px, 82%).",
+      messageWidthInvalid:
+        "Voer een CSS-breedte in zoals 960px, 82%, min(1280px, 82%) of calc(100% - 2rem).",
     },
     sidebarPrefs: {
       title: "Zijbalk",
@@ -1694,6 +1706,7 @@ export const nl: TranslationMap = {
     blockedAgentFilter: "geblokkeerd door agentfilter",
   },
   nav: {
+    account: "Account",
     back: "Terug",
     forward: "Vooruit",
     chat: "Chat",
@@ -1925,6 +1938,15 @@ export const nl: TranslationMap = {
       pair: "Koppelen",
       more: "Meer aanmeldopties",
     },
+    prepare: {
+      title: "Een lokaal model instellen",
+      intro: "Download of bereid een lokaal model voor op deze Gateway.",
+      button: "Model instellen / downloaden",
+      ollamaLabel: "Ollama",
+      ollamaHint: "Download een tools-capabel model van je Ollama-server",
+      llamaCppLabel: "Lokaal model (llama.cpp)",
+      llamaCppHint: "Download een lokaal model van ongeveer 5,0 GB; vereist 16 GB RAM",
+    },
     manual: {
       title: "Verbinding maken met een API-sleutel of token",
       provider: "Provider",
@@ -1955,8 +1977,11 @@ export const nl: TranslationMap = {
     },
     wizard: {
       dialogLabel: "Aanmelden bij provider",
+      prepareDialogLabel: "Lokaal model instellen",
       title: "Aanmelden met een provider",
+      prepareTitle: "Een lokaal model instellen",
       starting: "Aanmelding bij provider starten…",
+      prepareStarting: "Bezig met starten van lokale modelconfiguratie…",
       checking: "Je modelconfiguratie controleren…",
       working: "Bezig…",
       continue: "Doorgaan",
@@ -2420,6 +2445,8 @@ export const nl: TranslationMap = {
     toolRuns: "{count} uitvoeringen",
     identity: {
       title: "Identiteit",
+      menuLabel: "Identiteitsmenu",
+      menuButtonLabel: "Identiteits- en app-menu voor {name}",
       description: "Je profiel op deze gateway.",
       loading: "Je identiteit laden…",
       profileUnavailable: "Je identiteitsprofiel kon niet worden geladen.",
@@ -3045,6 +3072,7 @@ export const nl: TranslationMap = {
     eventStale: "Verlopen sessie",
   },
   connection: {
+    queuedCount: "{count} in wachtrij",
     reconnecting: "Opnieuw verbinden…",
     retryNow: "Nu opnieuw proberen",
     access: {
@@ -3716,6 +3744,16 @@ export const nl: TranslationMap = {
   },
   login: {
     subtitle: "Gateway-dashboard",
+    deviceAuthMigration: {
+      banner: "Deze browser heeft na de update nog eenmalige apparaatgoedkeuring nodig.",
+      action: "Beveilig deze browser",
+      secureContextRequired:
+        "Deze verouderde browser blijft tijdelijk beschikbaar. Open hem opnieuw via HTTPS of localhost om hem te beveiligen met apparaatidentiteit.",
+      pendingUnavailable:
+        "Het browserkoppelingsverzoek is nog niet beschikbaar. Probeer het zo meteen opnieuw.",
+      loadFailed: "Kan het koppelingsverzoek van deze browser niet laden: {error}",
+      approvalFailed: "Kan deze browser niet beveiligen: {error}",
+    },
     passwordPlaceholder: "optioneel",
     showToken: "Token weergeven",
     hideToken: "Token verbergen",
@@ -3818,6 +3856,9 @@ export const nl: TranslationMap = {
   },
   chat: {
     disconnected: "Verbinding met Gateway verbroken.",
+    sendErrors: {
+      activeLeafChanged: "De thread is van vertakking gewisseld — controleer en verstuur opnieuw.",
+    },
     waitingForApproval: "Wachten op goedkeuring…",
     startupStatus: {
       preparingWorkspace: "Werkruimte voorbereiden…",
@@ -3827,6 +3868,37 @@ export const nl: TranslationMap = {
     },
     outputTokens: "{count} uitvoertokens",
     archivedSessionDisabled: "Herstel deze sessie om berichten te verzenden.",
+    sessionSharing: {
+      menu: "Thread delen",
+      current: "Threadzichtbaarheid: {visibility}",
+      visibility: "Zichtbaarheid",
+      shared: "Gedeeld",
+      readOnly: "Alleen-lezen",
+      suggest: "Voorstellen",
+      draft: "Concept",
+      publishDraft: "Concept publiceren",
+      members: "Leden",
+      selected: "Lid",
+      noPeople: "Geen gekoppelde personen gevonden.",
+      readOnlyNotice:
+        "Alleen de eigenaar en leden van de thread kunnen actie ondernemen in deze thread.",
+    },
+    sessionSuggestions: {
+      suggest: "Voorstellen",
+      suggestMessage: "Bericht voorstellen",
+      attachmentsUnsupported: "Verwijder bijlagen voordat je een tekstvoorstel indient.",
+      sendNow: "Voorstel van {author} nu verzenden",
+      queue: "Voorstel van {author} in wachtrij zetten",
+      edit: "Voorstel van {author} bewerken",
+      dismiss: "Voorstel van {author} negeren",
+      typing: "{name} is aan het typen…",
+      typingMany: "{names} zijn aan het typen…",
+      state: {
+        pending: "In afwachting",
+        accepted: "Geaccepteerd",
+        dismissed: "Genegeerd",
+      },
+    },
     loadOlder: "Oudere laden",
     sessionHeader: {
       renameTooltip: "Sessie hernoemen",
@@ -3840,6 +3912,7 @@ export const nl: TranslationMap = {
       copyPath: "Pad kopiëren",
       copyBranch: "Branchnaam kopiëren",
       copied: "Gekopieerd",
+      incognito: "Incognito-thread",
       branches: "Threadvertakkingen",
       branchSwitchUnavailable: "Vertakking wisselen is niet beschikbaar terwijl de agent werkt.",
       branchSwitchRequiresAdmin:
@@ -4130,6 +4203,7 @@ export const nl: TranslationMap = {
       openInCanvas: "Openen in canvas",
       reply: "Beantwoorden",
       replyToMessage: "Op bericht reageren",
+      replyingTo: "Antwoorden op {name}",
       rewind: "Terugspoelen",
       rewindConfirm: "Terugspoelen naar voor dit bericht?",
       rewindToHere: "Naar hier terugspoelen",
@@ -4228,6 +4302,8 @@ export const nl: TranslationMap = {
       placeholderDisconnected: "Connect to the gateway to start chatting...",
       offlineHint:
         "Offline — berichten worden in de wachtrij geplaatst en verzonden zodra de verbinding terugkeert.",
+      offlineQueuedHint:
+        "Offline — {count} in wachtrij; berichten worden verzonden zodra de verbinding terugkeert.",
       preparingModel: "Model voorbereiden...",
       responding: "{name} reageert...",
       sendingMessage: "Bericht verzenden...",

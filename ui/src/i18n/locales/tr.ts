@@ -595,6 +595,9 @@ export const tr: TranslationMap = {
     worktreeName: "Worktree adı",
     worktreeNamePlaceholder: "auto",
     worktreeNameInvalid: "Worktree adları küçük harfler, rakamlar ve tireler kullanır.",
+    incognito: "Gizli",
+    incognitoDescription: "Bu konuşmayı yalnızca Gateway yeniden başlayana kadar sakla",
+    startAsDraft: "Taslak olarak başlat",
     messagePlaceholder: "Bu oturum ne üzerinde çalışmalı?",
     readingAttachment: "Ek okunuyor",
     start: "Oturumu başlat",
@@ -616,7 +619,8 @@ export const tr: TranslationMap = {
     limit: "Sınır",
     filters: "Filtreler",
     createdBy: "{name} tarafından oluşturuldu",
-    filterByCreator: "Oluşturana göre filtrele",
+    archivedBy: "{name} tarafından arşivlendi",
+    people: "Kişiler",
     allCreators: "Tüm kişiler",
     filterControls: "Oturum filtreleri",
     sourceFilters: "Oturum kaynağı filtreleri",
@@ -675,6 +679,8 @@ export const tr: TranslationMap = {
     openWorkboardCard: "Workboard kartını aç",
     dashboardAvailable: "Pano kullanılabilir",
     approvalNeeded: "Onay gerekli",
+    queuedMessage: "Gönderilmek üzere {count} mesaj sıraya alındı",
+    queuedMessages: "Gönderilmek üzere {count} mesaj sıraya alındı",
     noSessions: "Oturum bulunamadı.",
     noActiveSessions: "Etkin konu yok.",
     noArchivedSessions: "Arşivlenmiş oturum yok.",
@@ -743,6 +749,7 @@ export const tr: TranslationMap = {
     unread: "Unread",
     worktreeSession: "Worktree session",
     automationAttached: "Automation attached",
+    incognito: "Gizli konuşma",
     cloudWorkerPlacement: "Bulut çalışanı: {state}",
     cloudWorkerPlacementConflict: "Bulut işçisi: {state} · 1 çalışma alanı çakışması",
     cloudWorkerPlacementConflicts: "Bulut işçisi: {state} · {count} çalışma alanı çakışması",
@@ -1402,6 +1409,11 @@ export const tr: TranslationMap = {
     chatPrefs: {
       title: "Sohbet",
       hint: "Tarayıcıya özel yerel sohbet tercihleri.",
+      messageWidth: "Mesaj genişliği",
+      messageWidthHint:
+        "Ortalanmış döküm için isteğe bağlı CSS genişliği, örneğin 960px, 82% veya min(1280px, 82%).",
+      messageWidthInvalid:
+        "960px, 82%, min(1280px, 82%) veya calc(100% - 2rem) gibi bir CSS genişliği girin.",
     },
     sidebarPrefs: {
       title: "Kenar Çubuğu",
@@ -1689,6 +1701,7 @@ export const tr: TranslationMap = {
     blockedAgentFilter: "aracı filtresi tarafından engellendi",
   },
   nav: {
+    account: "Hesap",
     back: "Geri",
     forward: "İleri",
     chat: "Sohbet",
@@ -1921,6 +1934,15 @@ export const tr: TranslationMap = {
       pair: "Eşleştir",
       more: "Diğer oturum açma seçenekleri",
     },
+    prepare: {
+      title: "Yerel bir model kur",
+      intro: "Bu Gateway üzerinde yerel bir model indirin veya hazırlayın.",
+      button: "Modeli kur / indir",
+      ollamaLabel: "Ollama",
+      ollamaHint: "Ollama sunucunuzdan araç destekli bir model indirin",
+      llamaCppLabel: "Yerel model (llama.cpp)",
+      llamaCppHint: "Yaklaşık 5.0 GB'lık yerel bir model indirin; 16 GB RAM gerektirir",
+    },
     manual: {
       title: "API anahtarı veya token ile bağlan",
       provider: "Sağlayıcı",
@@ -1951,8 +1973,11 @@ export const tr: TranslationMap = {
     },
     wizard: {
       dialogLabel: "Sağlayıcıda oturum açma",
+      prepareDialogLabel: "Yerel model kurulumu",
       title: "Bir sağlayıcıyla oturum açın",
+      prepareTitle: "Yerel bir model kur",
       starting: "Sağlayıcıda oturum açma başlatılıyor…",
+      prepareStarting: "Yerel model kurulumu başlatılıyor…",
       checking: "Model kurulumunuz kontrol ediliyor…",
       working: "Çalışıyor…",
       continue: "Devam et",
@@ -2424,6 +2449,8 @@ export const tr: TranslationMap = {
     toolRuns: "{count} çalıştırma",
     identity: {
       title: "Kimlik",
+      menuLabel: "Kimlik menüsü",
+      menuButtonLabel: "{name} için kimlik ve uygulama menüsü",
       description: "Bu gateway üzerindeki profiliniz.",
       loading: "Kimliğiniz yükleniyor…",
       profileUnavailable: "Kimlik profiliniz yüklenemedi.",
@@ -3045,6 +3072,7 @@ export const tr: TranslationMap = {
     eventStale: "Eski oturum",
   },
   connection: {
+    queuedCount: "{count} sırada",
     reconnecting: "Yeniden bağlanıyor…",
     retryNow: "Şimdi yeniden dene",
     access: {
@@ -3716,6 +3744,16 @@ export const tr: TranslationMap = {
   },
   login: {
     subtitle: "Gateway Kontrol Paneli",
+    deviceAuthMigration: {
+      banner: "Bu tarayıcı güncellemeden sonra bir kez cihaz onayı gerektiriyor.",
+      action: "Bu tarayıcıyı güvene al",
+      secureContextRequired:
+        "Bu eski tarayıcı geçici olarak kullanılabilir durumda. Cihaz kimliğiyle güvene almak için HTTPS veya localhost üzerinden yeniden açın.",
+      pendingUnavailable:
+        "Tarayıcı eşleştirme isteği henüz kullanılamıyor. Birazdan tekrar deneyin.",
+      loadFailed: "Bu tarayıcının eşleştirme isteği yüklenemedi: {error}",
+      approvalFailed: "Bu tarayıcı güvene alınamadı: {error}",
+    },
     passwordPlaceholder: "isteğe bağlı",
     showToken: "Tokenı göster",
     hideToken: "Token'ı gizle",
@@ -3818,6 +3856,9 @@ export const tr: TranslationMap = {
   },
   chat: {
     disconnected: "Gateway bağlantısı kesildi.",
+    sendErrors: {
+      activeLeafChanged: "İş parçacığı dal değiştirdi — gözden geçirip yeniden gönderin.",
+    },
     waitingForApproval: "Onay bekleniyor…",
     startupStatus: {
       preparingWorkspace: "Çalışma alanı hazırlanıyor…",
@@ -3827,6 +3868,36 @@ export const tr: TranslationMap = {
     },
     outputTokens: "{count} çıktı belirteci",
     archivedSessionDisabled: "Mesaj göndermek için bu oturumu geri yükleyin.",
+    sessionSharing: {
+      menu: "İş parçacığı paylaşımı",
+      current: "İş parçacığı görünürlüğü: {visibility}",
+      visibility: "Görünürlük",
+      shared: "Paylaşılan",
+      readOnly: "Salt okunur",
+      suggest: "Öner",
+      draft: "Taslak",
+      publishDraft: "Taslağı yayınla",
+      members: "Üyeler",
+      selected: "Üye",
+      noPeople: "Eşleştirilmiş kişi bulunamadı.",
+      readOnlyNotice: "Bu konu dizininde yalnızca konu sahibi ve üyeleri işlem yapabilir.",
+    },
+    sessionSuggestions: {
+      suggest: "Öner",
+      suggestMessage: "Mesaj öner",
+      attachmentsUnsupported: "Metin önerisi göndermeden önce ekleri kaldırın.",
+      sendNow: "{author} adlı kişinin önerisini şimdi gönder",
+      queue: "{author} adlı kişinin önerisini sıraya al",
+      edit: "{author} adlı kişinin önerisini düzenle",
+      dismiss: "{author} adlı kişinin önerisini yoksay",
+      typing: "{name} yazıyor…",
+      typingMany: "{names} yazıyor…",
+      state: {
+        pending: "Beklemede",
+        accepted: "Kabul edildi",
+        dismissed: "Yoksayıldı",
+      },
+    },
     loadOlder: "Daha eskileri yükle",
     sessionHeader: {
       renameTooltip: "Oturumu yeniden adlandır",
@@ -3840,6 +3911,7 @@ export const tr: TranslationMap = {
       copyPath: "Yolu kopyala",
       copyBranch: "Dal adını kopyala",
       copied: "Kopyalandı",
+      incognito: "Gizli konu dizini",
       branches: "İş parçacığı dalları",
       branchSwitchUnavailable: "Aracı çalışırken dal değiştirilemez.",
       branchSwitchRequiresAdmin: "Dal değiştirme, operatör yönetici erişimi gerektirir.",
@@ -4129,6 +4201,7 @@ export const tr: TranslationMap = {
       openInCanvas: "Kanvasta aç",
       reply: "Yanıtla",
       replyToMessage: "Mesajı yanıtla",
+      replyingTo: "{name} kişisine yanıt veriliyor",
       rewind: "Geri sar",
       rewindConfirm: "Bu mesajdan öncesine geri sarılsın mı?",
       rewindToHere: "Buraya geri sar",
@@ -4227,6 +4300,8 @@ export const tr: TranslationMap = {
       placeholderDisconnected: "Connect to the gateway to start chatting...",
       offlineHint:
         "Çevrimdışı — mesajlar sıraya alınacak ve bağlantı geri geldiğinde gönderilecek.",
+      offlineQueuedHint:
+        "Çevrimdışı — {count} sırada; bağlantı geri geldiğinde mesajlar gönderilir.",
       preparingModel: "Model hazırlanıyor...",
       responding: "{name} yanıtlıyor...",
       sendingMessage: "Mesaj gönderiliyor...",
